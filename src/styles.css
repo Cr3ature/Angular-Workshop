@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+.body{
+    background-image: url("./assets/images/GrungeTexture.jpg");
+    margin: 0;
+    background-size: cover;
+}
+
+.panel{
+    background: rgba(255,255,255,0.9);
+    border: 2px solid black;
+}
+
+.space-30{
+    margin-top: 30px;
+}
+
+.panel-primary> .panel-heading{
+    color: black;
+    background-color: rgba(220,220,220,0.9);
+    border-color: rgba(220,220,220,0.9);
+}
+
+.panel-demo{
+    min-height: 700px;
+}
+
+.container{
+    width: 100%;
+}

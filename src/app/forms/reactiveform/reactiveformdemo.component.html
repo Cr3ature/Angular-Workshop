@@ -1,0 +1,165 @@
+<div class="panel panel-primary panel-demo">
+    <div class="panel-heading">
+        <div class="text-center">
+            <h1>{{pageTitle}}</h1>
+        </div>
+    </div>
+      <div class="panel-body col-sm-6 col-md-offset-3">
+        <form class="form-horizontal"
+              novalidate
+              (ngSubmit)="save()"
+              [formGroup]="reactivecustomerForm">
+            <fieldset>
+                <div class="form-group"
+                     [ngClass]="{'has-error': (reactivecustomerForm.get('firstName').touched || reactivecustomerForm.get('firstName').dirty) && !reactivecustomerForm.get('firstName').valid }">
+                    <label class="col-md-2 control-label"
+                           for="firstNameId">Voornaam</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="firstNameId"
+                               type="text"
+                               placeholder="Voornaam (required)"
+                               formControlName="firstName" />
+                        <span class="help-block" *ngIf="(reactivecustomerForm.get('firstName').touched || reactivecustomerForm.get('firstName').dirty) && reactivecustomerForm.get('firstName').errors">
+                            <span *ngIf="reactivecustomerForm.get('firstName').errors.required">
+                                Vul je voornaam in.
+                            </span>
+                            <span *ngIf="reactivecustomerForm.get('firstName').errors.minlength">
+                                De voornaam moet langer zijn dan 3 karakters.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group"
+                     [ngClass]="{'has-error': (reactivecustomerForm.get('lastName').touched || reactivecustomerForm.get('lastName').dirty) && !reactivecustomerForm.get('lastName').valid }">
+                    <label class="col-md-2 control-label"
+                           for="lastNameId">Achternaam</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="lastNameId"
+                               type="text"
+                               placeholder="Achternaam (required)"
+                               formControlName="lastName" />
+                        <span class="help-block" *ngIf="(reactivecustomerForm.get('lastName').touched || reactivecustomerForm.get('lastName').dirty) && reactivecustomerForm.get('lastName').errors">
+                            <span *ngIf="reactivecustomerForm.get('lastName').errors.required">
+                                Vul je achternaam in.
+                            </span>
+                            <span *ngIf="reactivecustomerForm.get('lastName').errors.maxlength">
+                                De achternaam mag maximum 50 karakters bevatten.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div formGroupName="emailGroup"
+                     [ngClass]="{'has-error': reactivecustomerForm.get('emailGroup').errors}">
+
+                    <div class="form-group"
+                         [ngClass]="{'has-error': ( reactivecustomerForm.controls.emailGroup.controls.email.touched ||
+                                                    reactivecustomerForm.get('emailGroup.email').dirty) &&
+                                                    !reactivecustomerForm.get('emailGroup.email').valid }">
+                        <label class="col-md-2 control-label"
+                               for="emailId">Email</label>
+                        <div class="col-md-8">
+                            <input class="form-control"
+                                   id="emailId"
+                                   type="email"
+                                   placeholder="Email (required)"
+                                   formControlName="email" />
+                            <span class="help-block" *ngIf="(   reactivecustomerForm.get('emailGroup.email').touched ||
+                                                                reactivecustomerForm.get('emailGroup.email').dirty) &&
+                                                                reactivecustomerForm.get('emailGroup.email').errors">
+                                <span *ngIf="reactivecustomerForm.get('emailGroup.email').errors.required">
+                                    Vul je e-mail adres in.
+                                </span>
+                                <span *ngIf="reactivecustomerForm.get('emailGroup.email').errors.pattern">
+                                    Vul een geldig e-mail adres in.
+                                </span>
+                                <!-- This one does not work -->
+                                <span *ngIf="reactivecustomerForm.get('emailGroup.email').errors.email">
+                                    Vul een geldig e-mail adres in.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         [ngClass]="{'has-error': emailMessage}">
+                        <label class="col-md-2 control-label"
+                               for="confirmEmailId">Bevestig email</label>
+                        <div class="col-md-8">
+                            <input class="form-control"
+                                   id="confirmEmailId"
+                                   type="email"
+                                   placeholder="Bevestig email (required)"
+                                   formControlName="confirmEmail" />
+                            <span class="help-block" *ngIf="emailMessage">
+                                {{emailMessage}}
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': !reactivecustomerForm.get('phone').valid}">
+                    <label class="col-md-2 control-label" for="phoneId">Telefoon</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="phoneId"
+                               type="tel"
+                               placeholder="Telefoon"
+                               formControlName="phone" />
+                        <span class="help-block" *ngIf="reactivecustomerForm.get('phone').errors">
+                            <span *ngIf="reactivecustomerForm.get('phone').errors.required">
+                                Vul je telefoonnummer in.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <label class="col-md-2 control-label">Notificatie via</label>
+                    <div class="col-md-8">
+                        <label class="radio-inline">
+                            <input type="radio"
+                                   value="email"
+                                   formControlName="notification" />Email
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio"
+                                   value="text"
+                                   formControlName="notification" />Telefoon
+                        </label>
+                           <label class="radio-inline">
+                            <input type="radio"
+                                   value="none"
+                                   formControlName="notification" />Geen notificatie
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary"
+                                    type="submit"
+                                    [disabled]="!reactivecustomerForm.valid">
+                                Opslaan
+                            </button>
+                        </span>
+                        <span>
+                            <button class="btn btn-default"
+                                    type="button"
+                                    (click)="populateTestData()">
+                                SET Test Data
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>

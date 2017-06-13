@@ -1,0 +1,35 @@
+<div class="panel panel-primary panel-demo">
+    <div class="panel-heading">
+        <div class="text-center">
+            <h1>{{pageTitle}}</h1>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row" *ngIf="!error">
+                    <div class="col-sm-12">
+                        <div *ngFor="let allphian of allphians">
+                            <div class="col-sm-4">
+                                <div class="allphian">
+                                    <div class="allphian-image">
+                                        <a routerLink="/allphians/{{allphian.id}}"><img [src]="allphian.imageUrl" style="height: 100%;" /></a>
+                                    </div>
+                                    <h2 class="col-sm-12 allphian-name"><a routerLink="{{allphian.id}}">{{allphian.name}}</a></h2>
+                                    <div class="col-sm-12 allphian-role">{{allphian.keyrole}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="text-align:center;">
+            <div class="col-sm-12">
+                <button class="btn btn-info" (click)="goToTechnologies()">Discover our knowledge...</button>
+            </div>
+        </div>
+    </div>
+</div>
