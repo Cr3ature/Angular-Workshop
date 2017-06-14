@@ -1,3 +1,14 @@
-<p>
-  technologies-list works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading"><h1>Technologieën @ AllPhi</h1></div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover" style="">
+      <tr class="" *ngFor="let technologie of technologies">
+        <td>{{technologie.name}}</td>
+        <td><span class="label label-success">{{technologie.rating}} stars</span></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="alert alert-info alertMoreTechnologies" role="alert">
+  Meer technologieën @ <a href="http://www.allphi.eu" target="_blank">www.allphi.eu</a>
+</div>
