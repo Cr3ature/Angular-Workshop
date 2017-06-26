@@ -27,7 +27,7 @@ export class InMemDbData implements InMemoryDbService, InMemoryBackendConfig {
                 "id": 4,
                 "name": "Bart Witters",
                 "imageUrl": "../../assets//images/AllPhians/bartwitters.jpg",
-                "keyrole": "speaker - presentation"
+                "keyrole": "support"
             },
             {
                 "id": 5,
@@ -52,9 +52,21 @@ export class InMemDbData implements InMemoryDbService, InMemoryBackendConfig {
                 "name": "Jonathan Stefanski",
                 "imageUrl": "../../assets//images/AllPhians/jonathanstefanski.jpg",
                 "keyrole": "support"
+            },
+            {
+                "id": 9,
+                "name": "Nathalie Verté",
+                "imageUrl": "../../assets/images/AllPhians/nathalieverte.jpg",
+                "keyrole": "speaker - presentation"
+            },
+            {
+                "id": 10,
+                "name": "Roel Jacobs",
+                "imageUrl": "../../assets/images/AllPhians/",
+                "keyrole": "support"
             }
+        ]
 
-        ];
         return { allphians };
     }
 }
