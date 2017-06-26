@@ -9,13 +9,13 @@ export class InMemDbData implements InMemoryDbService, InMemoryBackendConfig {
                 "id": 1,
                 "name": "David Vanderheyden",
                 "imageUrl": "../../assets/images/AllPhians/davidvanderheyden.jpg",
-                "keyrole": "demo coding"
+                "keyrole": "demo coding - support"
             },
             {
                 "id": 2,
                 "name": "Benjamin Ceustermans",
                 "imageUrl": "../../assets//images/AllPhians/benjaminceustermans.jpg",
-                "keyrole": "speaker - demo coding"
+                "keyrole": "demo coding - speaker - demo"
             },
             {
                 "id": 3,
@@ -45,7 +45,7 @@ export class InMemDbData implements InMemoryDbService, InMemoryBackendConfig {
                 "id": 7,
                 "name": "Thomas Schelkens",
                 "imageUrl": "../../assets//images/AllPhians/thomasschelkens.jpg",
-                "keyrole": "speaker - presentation"
+                "keyrole": "speaker - presentation - Demo"
             },
             {
                 "id": 8,
@@ -62,7 +62,7 @@ export class InMemDbData implements InMemoryDbService, InMemoryBackendConfig {
             {
                 "id": 10,
                 "name": "Roel Jacobs",
-                "imageUrl": "../../assets/images/AllPhians/",
+                "imageUrl": "../../assets/images/AllPhians/roeljacobs.png",
                 "keyrole": "support"
             }
         ]
